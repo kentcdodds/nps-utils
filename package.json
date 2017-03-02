@@ -41,7 +41,7 @@
     "opt-cli": "^1.5.1",
     "prettier-eslint": "^4.2.0",
     "rimraf": "^2.6.1",
-    "semantic-release": "^6.3.3",
+    "semantic-release": "^6.3.6",
     "validate-commit-msg": "^2.8.2"
   },
   "eslintConfig": {
