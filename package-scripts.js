@@ -1,4 +1,6 @@
+require('babel-register') // eslint-disable-line import/no-unassigned-import
 const commonTags = require('common-tags')
+const {concurrent, series} = require('./src')
 
 const oneLine = commonTags.oneLine
 
@@ -38,14 +40,18 @@ module.exports = {
         We automate releases with semantic-release.
         This should only be run on travis
       `,
-      script: 'semantic-release pre && npm publish && semantic-release post',
+      script: series(
+        'semantic-release pre',
+        'npm publish',
+        'semantic-release post'
+      ),
     },
     validate: {
       description: oneLine`
         This runs several scripts to make sure things look
         good before committing or on clean install
       `,
-      script: 'nps lint build test',
+      script: concurrent.nps('lint', 'build', 'test'),
     },
     addContributor: {
       description: 'When new people contribute to the project, run this',
@@ -60,3 +66,16 @@ module.exports = {
     silent: false,
   },
 }
+// this is not transpiled
+/*
+  eslint
+  max-len: 0,
+  comma-dangle: [
+    2,
+    {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      functions: 'never'
+    }
+  ]
+ */
