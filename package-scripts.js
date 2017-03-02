@@ -1,6 +1,7 @@
 require('babel-register') // eslint-disable-line import/no-unassigned-import
+const path = require('path')
 const {oneLine} = require('common-tags')
-const {concurrent, series} = require('./src')
+const {concurrent, series, open} = require('./src')
 
 module.exports = {
   scripts: {
@@ -15,6 +16,9 @@ module.exports = {
       default: `jest --coverage`,
       watch: 'jest --watch',
     },
+    openCoverage: open(
+      `file://${path.resolve('coverage/lcov-report/index.html')}`
+    ),
     build: {
       description: 'delete the dist directory and run babel to build the files',
       script: oneLine`

@@ -24,6 +24,10 @@ exports[`mkdirp as darwin 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/b
 
 exports[`mkdirp as win32 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
 
+exports[`open as darwin 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
+
+exports[`open as win32 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
+
 exports[`rimraf as darwin 1`] = `"node node_modules/rimraf/bin.js build"`;
 
 exports[`rimraf as win32 1`] = `"node node_modules/rimraf/bin.js build"`;

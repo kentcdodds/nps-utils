@@ -45,6 +45,8 @@ const snapshotTests = {
   ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
   copy: ({copy}) => copy('"**/*.html" "../dist/" --cwd=src --parents'),
   mkdirp: ({mkdirp}) => mkdirp('/tmp/foo/bar/baz'),
+  open: ({open}) =>
+    open('http://kentcdodds.com -- "google chrome" --incognito'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {

@@ -22,6 +22,7 @@ export {
   ifNotWindows,
   copy,
   mkdirp,
+  open,
 }
 
 /**
@@ -274,6 +275,18 @@ function copy(args) {
  */
 function mkdirp(args) {
   return `${getBin('mkdirp')} ${args}`
+}
+
+/**
+ * Gets a script that uses the opn-cli binary. opn-cli
+ * is a dependency of nps-utils, so you don't need to
+ * install it yourself.
+ * @param {string} args - args to pass to opn-cli
+ *   learn more from http://npm.im/opn-cli
+ * @return {string} - the command with the opn-cli binary
+ */
+function open(args) {
+  return `${getBin('opn-cli', 'opn')} ${args}`
 }
 
 // utils
