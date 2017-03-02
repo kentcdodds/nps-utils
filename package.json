@@ -7,7 +7,7 @@
     "start": "nps",
     "test": "nps test",
     "commitmsg": "opt --in commit-msg --exec \"validate-commit-msg\"",
-    "precommit": "opt --in pre-commit --exec \"npm start validate\""
+    "precommit": "opt --in pre-commit --exec \"lint-staged && npm start validate\""
   },
   "files": [
     "dist"
