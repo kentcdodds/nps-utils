@@ -1,5 +1,4 @@
 import path from 'path'
-import hasbinMock from 'hasbin'
 import {oneLine, oneLineTrim} from 'common-tags'
 import {concurrent, series, runInNewWindow} from '.'
 
@@ -43,7 +42,7 @@ test('concurrent', () => {
     }),
   ).toBe(
     oneLine`
-      concurrently
+      node node_modules/concurrently/src/main.js
       --kill-others-on-fail
       --prefix-colors "bgCyan.bold.dim,bgWhite.black.dim"
       --prefix "[{name}]"
@@ -66,7 +65,7 @@ test('concurrent.nps', () => {
     ),
   ).toBe(
     oneLine`
-      concurrently
+      node node_modules/concurrently/src/main.js
       --kill-others-on-fail
       --prefix-colors
       ${oneLineTrim`
@@ -78,26 +77,6 @@ test('concurrent.nps', () => {
       'nps test' 'nps lint' 'nps "build.app --silent"' 'nps validate'
     `,
   )
-})
-
-test('concurrent can find the relative path to the concurrently bin', () => {
-  hasbinMock.__mock.sync.returnValue = false
-  expect(
-    concurrent({
-      test: 'jest',
-      lint: 'eslint',
-    }),
-  ).toBe(
-    oneLine`
-      node node_modules/concurrently/src/main.js
-      --kill-others-on-fail
-      --prefix-colors "bgCyan.bold.dim,black.bgYellow.bold.dim"
-      --prefix "[{name}]"
-      --names "test,lint"
-      jest eslint
-    `,
-  )
-  hasbinMock.__mock.reset()
 })
 
 test('runInNewWindow', () => {

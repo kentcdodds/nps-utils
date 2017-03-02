@@ -19,7 +19,6 @@
     "any-shell-escape": "^0.1.1",
     "common-tags": "^1.4.0",
     "concurrently": "^3.4.0",
-    "hasbin": "^1.2.3",
     "is-windows": "^1.0.0"
   },
   "devDependencies": {

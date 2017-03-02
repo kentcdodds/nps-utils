@@ -1,5 +1,4 @@
 import path from 'path'
-import hasbin from 'hasbin'
 import shellEscape from 'any-shell-escape'
 import isWindows from 'is-windows'
 import {oneLine} from 'common-tags'
@@ -213,10 +212,6 @@ function quoteScript(script, escaped) {
 }
 
 function getConcurrentlyBin() {
-  const hasConcurrentlyBin = hasbin.sync('concurrently')
-  if (hasConcurrentlyBin) {
-    return 'concurrently'
-  }
   const concurrentlyPackagePath = require.resolve('concurrently/package.json')
   const concurrentlyDir = path.dirname(concurrentlyPackagePath)
   const {bin: {concurrently: relativeConcurrentlyBin}} = require(
