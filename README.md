@@ -69,6 +69,10 @@ API docs can be found [here][doclet]
 - [rimraf](https://doclets.io/kentcdodds/nps-utils/master#dl-rimraf)
 - [ifWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifWindows)
 - [ifNotWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifNotWindows)
+- [copy](https://doclets.io/kentcdodds/nps-utils/master#dl-copy)
+- [mkdirp](https://doclets.io/kentcdodds/nps-utils/master#dl-mkdirp)
+- [open](https://doclets.io/kentcdodds/nps-utils/master#dl-open)
+- [crossEnv](https://doclets.io/kentcdodds/nps-utils/master#dl-crossEnv)
 
 Or, see the JSDoc right in
 [the source code](https://github.com/kentcdodds/nps-utils/blob/master/src/index.js) 😎
