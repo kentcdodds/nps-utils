@@ -8,6 +8,10 @@ exports[`concurrent.nps as darwin 1`] = `"node node_modules/concurrently/src/mai
 
 exports[`concurrent.nps as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" \\"nps test\\" \\"nps lint\\" \\"nps \\"\\"build.app --silent\\"\\"\\" \\"nps validate\\""`;
 
+exports[`copy as darwin 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
+
+exports[`copy as win32 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
+
 exports[`ifNotWindows as darwin 1`] = `"echo main"`;
 
 exports[`ifNotWindows as win32 1`] = `"echo alternate"`;

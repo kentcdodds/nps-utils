@@ -13,7 +13,15 @@ const defaultColors = [
   // TODO: add more colors that look good?
 ]
 
-export {concurrent, series, runInNewWindow, rimraf, ifWindows, ifNotWindows}
+export {
+  concurrent,
+  series,
+  runInNewWindow,
+  rimraf,
+  ifWindows,
+  ifNotWindows,
+  copy,
+}
 
 /**
  * Accepts any number of scripts, filters out any
@@ -241,6 +249,18 @@ function ifWindows(script, altScript) {
  */
 function ifNotWindows(script, altScript) {
   return ifWindows(altScript, script)
+}
+
+/**
+ * Gets a script that uses the cpy-cli binary. cpy-cli
+ * is a dependency of nps-utils, so you don't need to
+ * install it yourself.
+ * @param {string} args - args to pass to cpy-cli
+ *   learn more from http://npm.im/cpy-cli
+ * @return {string} - the command with the cpy-cli binary
+ */
+function copy(args) {
+  return `${getBin('cpy-cli', 'cpy')} ${args}`
 }
 
 // utils

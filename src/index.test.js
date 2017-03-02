@@ -43,6 +43,7 @@ const snapshotTests = {
   rimraf: ({rimraf}) => rimraf('build'),
   ifWindows: ({ifWindows}) => ifWindows('echo main', 'echo alternate'),
   ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
+  copy: ({copy}) => copy('"**/*.html" "../dist/" --cwd=src --parents'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
