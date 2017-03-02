@@ -66,6 +66,9 @@ API docs can be found [here][doclet]
 - [series.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-series.nps)
 - [runInNewWindow](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow)
 - [runInNewWindow.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow.nps)
+- [rimraf](https://doclets.io/kentcdodds/nps-utils/master#dl-rimraf)
+- [ifWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifWindows)
+- [ifNotWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifNotWindows)
 
 Or, see the JSDoc right in
 [the source code](https://github.com/kentcdodds/nps-utils/blob/master/src/index.js) 😎

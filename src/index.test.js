@@ -1,19 +1,24 @@
 import path from 'path'
-import {concurrent, series, runInNewWindow, rimraf} from '.'
 
+// all of these tests are run both as darwin and win32
+// you provide the key (test name) and the value is a
+// function that accepts npsUtils which you can use to
+// create the result.
 const snapshotTests = {
-  series: series('echo hey', null, 'echo hi', undefined, 'echo there', false),
-  'series.nps': series.nps(
-    'test',
-    false,
-    'lint.src',
-    null,
-    'lint.scripts --cache',
-    undefined,
-    ' ',
-    'build --fast',
-  ),
-  concurrent: concurrent({
+  series: ({series}) =>
+    series('echo hey', null, 'echo hi', undefined, 'echo there', false),
+  'series.nps': ({series}) =>
+    series.nps(
+      'test',
+      false,
+      'lint.src',
+      null,
+      'lint.scripts --cache',
+      undefined,
+      ' ',
+      'build --fast',
+    ),
+  concurrent: ({concurrent}) => concurrent({
     test: 'echo test',
     validate: {
       script: false,
@@ -22,37 +27,44 @@ const snapshotTests = {
     build: false,
     cover: undefined,
   }),
-  'concurrent.nps': concurrent.nps(
-    null,
-    'test',
-    undefined,
-    'lint',
-    {script: 'build.app --silent'},
-    false,
-    {script: 'validate', color: 'bgGreen.dim'},
-  ),
-  runInNewWindow: runInNewWindow('echo hi'),
-  'runInNewWindow.nps': runInNewWindow.nps('lint --cache'),
-  rimraf: rimraf('build'),
+  'concurrent.nps': ({concurrent}) =>
+    concurrent.nps(
+      null,
+      'test',
+      undefined,
+      'lint',
+      {script: 'build.app --silent'},
+      false,
+      {script: 'validate', color: 'bgGreen.dim'},
+    ),
+  runInNewWindow: ({runInNewWindow}) => runInNewWindow('echo hi'),
+  'runInNewWindow.nps': ({runInNewWindow}) =>
+    runInNewWindow.nps('lint --cache'),
+  rimraf: ({rimraf}) => rimraf('build'),
+  ifWindows: ({ifWindows}) => ifWindows('echo main', 'echo alternate'),
+  ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
-  test(testName, () => {
-    const result = snapshotTests[testName]
+  test(`${testName} as darwin`, () => {
+    const result = withPlatform('darwin', snapshotTests[testName])
+    expect(relativeizePath(result)).toMatchSnapshot()
+  })
+  test(`${testName} as win32`, () => {
+    const result = withPlatform('win32', snapshotTests[testName])
     expect(relativeizePath(result)).toMatchSnapshot()
   })
 })
 
-test('runInNewWindow.nps as windows', () => {
+function withPlatform(platform, getResult) {
   const originalPlatform = process.platform
-  process.platform = 'win32'
+  process.platform = platform
   jest.resetModules()
   const freshUtils = require('.')
-  expect(
-    relativeizePath(freshUtils.runInNewWindow.nps('initiate database')),
-  ).toMatchSnapshot()
+  const result = getResult(freshUtils)
   process.platform = originalPlatform
-})
+  return result
+}
 
 function relativeizePath(stringWithAbsolutePaths) {
   return stringWithAbsolutePaths.replace(

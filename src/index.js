@@ -1,6 +1,4 @@
 import path from 'path'
-import shellEscape from 'any-shell-escape'
-import isWindows from 'is-windows'
 import {oneLine} from 'common-tags'
 
 const defaultColors = [
@@ -15,7 +13,7 @@ const defaultColors = [
   // TODO: add more colors that look good?
 ]
 
-export {concurrent, series, runInNewWindow, rimraf}
+export {concurrent, series, runInNewWindow, rimraf, ifWindows, ifNotWindows}
 
 /**
  * Accepts any number of scripts, filters out any
@@ -212,13 +210,37 @@ runInNewWindow.nps = function runInNewWindowNPS(scriptName) {
 }
 
 /**
- * Gets a script that uses the rimraf binary
+ * Gets a script that uses the rimraf binary. rimraf
+ * is a dependency of nps-utils, so you don't need to
+ * install it yourself.
  * @param {string} args - args to pass to rimraf
  *   learn more from http://npm.im/rimraf
  * @return {string} - the command with the rimraf binary
  */
 function rimraf(args) {
   return `${getBin('rimraf')} ${args}`
+}
+
+/**
+ * Takes two scripts and returns the first if the
+ * current environment is windows, and the second
+ * if the current environment is not windows
+ * @param {string} script - the script to use for windows
+ * @param {string} altScript - the script to use for non-windows
+ * @return {string} - the command to run
+ */
+function ifWindows(script, altScript) {
+  return isWindows() ? script : altScript
+}
+
+/**
+ * Simply calls ifWindows(altScript, script)
+ * @param {string} script - the script to use for non-windows
+ * @param {string} altScript - the script to use for windows
+ * @return {string} - the command to run
+ */
+function ifNotWindows(script, altScript) {
+  return ifWindows(altScript, script)
 }
 
 // utils
@@ -239,6 +261,16 @@ function getBin(packageName, binName = packageName) {
   const fullBinPath = path.join(concurrentlyDir, binRelativeToPackage)
   const relativeBinPath = path.relative(process.cwd(), fullBinPath)
   return `node ${relativeBinPath}`
+}
+
+function isWindows() {
+  // lazily require for perf :)
+  return require('is-windows')()
+}
+
+function shellEscape(...args) {
+  // lazily require for perf :)
+  return require('any-shell-escape')(...args)
 }
 
 /*
