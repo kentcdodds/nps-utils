@@ -1,11 +1,10 @@
 import path from 'path'
-import {oneLine, oneLineTrim} from 'common-tags'
 import {concurrent, series, runInNewWindow} from '.'
 
 test('series', () => {
   expect(
     series('echo hey', null, 'echo hi', undefined, 'echo there', false),
-  ).toBe('echo hey && echo hi && echo there')
+  ).toMatchSnapshot()
 })
 
 test('series.nps', () => {
@@ -20,13 +19,7 @@ test('series.nps', () => {
       ' ',
       'build --fast',
     ),
-  ).toBe(
-    oneLine`
-      nps test && nps lint.src &&
-      nps "lint.scripts --cache" &&
-      nps "build --fast"
-    `,
-  )
+  ).toMatchSnapshot()
 })
 
 test('concurrent', () => {
@@ -40,16 +33,7 @@ test('concurrent', () => {
       build: false,
       cover: undefined,
     }),
-  ).toBe(
-    oneLine`
-      node node_modules/concurrently/src/main.js
-      --kill-others-on-fail
-      --prefix-colors "bgCyan.bold.dim,bgWhite.black.dim"
-      --prefix "[{name}]"
-      --names "test,lint"
-      'echo test' 'echo lint'
-    `,
-  )
+  ).toMatchSnapshot()
 })
 
 test('concurrent.nps', () => {
@@ -63,35 +47,11 @@ test('concurrent.nps', () => {
       false,
       {script: 'validate', color: 'bgGreen.dim'},
     ),
-  ).toBe(
-    oneLine`
-      node node_modules/concurrently/src/main.js
-      --kill-others-on-fail
-      --prefix-colors
-      ${oneLineTrim`
-        "black.bgYellow.bold.dim,bgRed.bold.dim,
-        bgBlack.bold.white.dim,bgGreen.dim"
-      `}
-      --prefix "[{name}]"
-      --names "test,lint,build.app,validate"
-      'nps test' 'nps lint' 'nps "build.app --silent"' 'nps validate'
-    `,
-  )
+  ).toMatchSnapshot()
 })
 
 test('runInNewWindow', () => {
-  expect(relativeizePath(runInNewWindow('echo hi'))).toMatch(
-    oneLine`
-      osascript
-      -e 'tell application "Terminal"'
-      ${oneLine`
-        -e 'tell application "System Events"
-        to keystroke "t" using {command down}'
-      `}
-      -e 'do script "cd <projectRootDir> && echo hi" in front window'
-      -e 'end tell'
-    `,
-  )
+  expect(relativeizePath(runInNewWindow('echo hi'))).toMatchSnapshot()
 })
 
 test('runInNewWindow.nps as windows', () => {
@@ -101,12 +61,7 @@ test('runInNewWindow.nps as windows', () => {
   const freshUtils = require('.')
   expect(
     relativeizePath(freshUtils.runInNewWindow.nps('initiate database')),
-  ).toBe(
-    oneLine`
-      start cmd /k "cd <projectRootDir> &&
-      node node_modules/.bin/nps \\"initiate database\\""
-    `,
-  )
+  ).toMatchSnapshot()
   process.platform = originalPlatform
 })
 

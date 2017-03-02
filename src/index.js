@@ -4,11 +4,14 @@ import isWindows from 'is-windows'
 import {oneLine} from 'common-tags'
 
 const defaultColors = [
-  'bgCyan.bold.dim',
-  'black.bgYellow.bold.dim',
-  'bgGreen.bold.dim',
-  'bgRed.bold.dim',
-  'bgBlack.bold.white.dim',
+  'bgBlue.bold',
+  'bgMagenta.bold',
+  'bgGreen.bold',
+  'bgBlack.bold',
+  'bgCyan.bold',
+  'bgRed.bold',
+  'bgWhite.bold',
+  'bgYellow.bold',
   // TODO: add more colors that look good?
 ]
 
@@ -109,7 +112,10 @@ function concurrent(scripts) {
     } else if (typeof scriptObj === 'string') {
       scriptObj = {script: scriptObj}
     }
-    const {script, color = defaultColors[index]} = scriptObj
+    const {
+      script,
+      color = defaultColors[index % defaultColors.length],
+    } = scriptObj
     if (!script) {
       return accumulator
     }
