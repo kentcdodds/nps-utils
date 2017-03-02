@@ -21,6 +21,7 @@ export {
   ifWindows,
   ifNotWindows,
   copy,
+  mkdirp,
 }
 
 /**
@@ -261,6 +262,18 @@ function ifNotWindows(script, altScript) {
  */
 function copy(args) {
   return `${getBin('cpy-cli', 'cpy')} ${args}`
+}
+
+/**
+ * Gets a script that uses the mkdirp binary. mkdirp
+ * is a dependency of nps-utils, so you don't need to
+ * install it yourself.
+ * @param {string} args - args to pass to mkdirp
+ *   learn more from http://npm.im/mkdirp
+ * @return {string} - the command with the mkdirp binary
+ */
+function mkdirp(args) {
+  return `${getBin('mkdirp')} ${args}`
 }
 
 // utils

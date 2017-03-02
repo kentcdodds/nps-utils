@@ -21,6 +21,7 @@
     "concurrently": "^3.4.0",
     "cpy-cli": "^1.0.1",
     "is-windows": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1"
   },
   "devDependencies": {
