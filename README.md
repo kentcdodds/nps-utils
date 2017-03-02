@@ -30,6 +30,12 @@ and maintainable. So you wind up duplicating utility functions across projects.
 
 This has several utility functions you'll often want when using `nps`.
 
+Check out what the `concurrent` method can do:
+
+<a href="https://github.com/kentcdodds/nps-utils/raw/master/other/concurrent-nps.gif" title="Pull out npm scripts into another file with nps">
+  <img src="https://github.com/kentcdodds/nps-utils/raw/master/other/concurrent-nps.gif" alt="concurrent gif" title="concurrent gif" width="700" />
+</a>
+
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with [node][node] and
