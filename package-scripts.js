@@ -1,8 +1,6 @@
 require('babel-register') // eslint-disable-line import/no-unassigned-import
-const commonTags = require('common-tags')
+const {oneLine} = require('common-tags')
 const {concurrent, series} = require('./src')
-
-const oneLine = commonTags.oneLine
 
 module.exports = {
   scripts: {
