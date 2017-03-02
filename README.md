@@ -67,6 +67,9 @@ API docs can be found [here][doclet]
 - [runInNewWindow](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow)
 - [runInNewWindow.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow.nps)
 
+Or, see the JSDoc right in
+[the source code](https://github.com/kentcdodds/nps-utils/blob/master/src/index.js) 😎
+
 ## Inspiration
 
 This package was inspired by the removal of `--parallel` from `p-s`
