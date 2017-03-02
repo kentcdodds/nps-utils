@@ -47,6 +47,7 @@ const snapshotTests = {
   mkdirp: ({mkdirp}) => mkdirp('/tmp/foo/bar/baz'),
   open: ({open}) =>
     open('http://kentcdodds.com -- "google chrome" --incognito'),
+  crossEnv: ({crossEnv}) => crossEnv('NODE_ENV=test jest'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
