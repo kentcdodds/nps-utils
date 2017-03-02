@@ -15,7 +15,7 @@ const defaultColors = [
   // TODO: add more colors that look good?
 ]
 
-export {concurrent, series, runInNewWindow}
+export {concurrent, series, runInNewWindow, rimraf}
 
 /**
  * Accepts any number of scripts, filters out any
@@ -102,7 +102,7 @@ function concurrent(scripts) {
     `--names "${names.join(',')}"`,
     shellEscape(quotedScripts),
   ]
-  const concurrently = getConcurrentlyBin()
+  const concurrently = getBin('concurrently')
   return `${concurrently} ${flags.join(' ')}`
 
   function reduceScripts(accumulator, scriptName, index) {
@@ -211,21 +211,34 @@ runInNewWindow.nps = function runInNewWindowNPS(scriptName) {
   )
 }
 
+/**
+ * Gets a script that uses the rimraf binary
+ * @param {string} args - args to pass to rimraf
+ *   learn more from http://npm.im/rimraf
+ * @return {string} - the command with the rimraf binary
+ */
+function rimraf(args) {
+  return `${getBin('rimraf')} ${args}`
+}
+
+// utils
+
 function quoteScript(script, escaped) {
   const quote = escaped ? '\\"' : '"'
   const shouldQuote = script.indexOf(' ') !== -1
   return shouldQuote ? `${quote}${script}${quote}` : script
 }
 
-function getConcurrentlyBin() {
-  const concurrentlyPackagePath = require.resolve('concurrently/package.json')
-  const concurrentlyDir = path.dirname(concurrentlyPackagePath)
-  const {bin: {concurrently: relativeConcurrentlyBin}} = require(
-    concurrentlyPackagePath,
-  )
-  const fullConcurrently = path.join(concurrentlyDir, relativeConcurrentlyBin)
-  const relativeConcurrently = path.relative(process.cwd(), fullConcurrently)
-  return `node ${relativeConcurrently}`
+function getBin(packageName, binName = packageName) {
+  const packagePath = require.resolve(`${packageName}/package.json`)
+  const concurrentlyDir = path.dirname(packagePath)
+  let {bin: binRelativeToPackage} = require(packagePath)
+  if (typeof binRelativeToPackage === 'object') {
+    binRelativeToPackage = binRelativeToPackage[binName]
+  }
+  const fullBinPath = path.join(concurrentlyDir, binRelativeToPackage)
+  const relativeBinPath = path.relative(process.cwd(), fullBinPath)
+  return `node ${relativeBinPath}`
 }
 
 /*

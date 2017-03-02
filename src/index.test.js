@@ -1,57 +1,46 @@
 import path from 'path'
-import {concurrent, series, runInNewWindow} from '.'
+import {concurrent, series, runInNewWindow, rimraf} from '.'
 
-test('series', () => {
-  expect(
-    series('echo hey', null, 'echo hi', undefined, 'echo there', false),
-  ).toMatchSnapshot()
-})
+const snapshotTests = {
+  series: series('echo hey', null, 'echo hi', undefined, 'echo there', false),
+  'series.nps': series.nps(
+    'test',
+    false,
+    'lint.src',
+    null,
+    'lint.scripts --cache',
+    undefined,
+    ' ',
+    'build --fast',
+  ),
+  concurrent: concurrent({
+    test: 'echo test',
+    validate: {
+      script: false,
+    },
+    lint: {script: 'echo lint', color: 'bgWhite.black.dim'},
+    build: false,
+    cover: undefined,
+  }),
+  'concurrent.nps': concurrent.nps(
+    null,
+    'test',
+    undefined,
+    'lint',
+    {script: 'build.app --silent'},
+    false,
+    {script: 'validate', color: 'bgGreen.dim'},
+  ),
+  runInNewWindow: runInNewWindow('echo hi'),
+  'runInNewWindow.nps': runInNewWindow.nps('lint --cache'),
+  rimraf: rimraf('build'),
+}
 
-test('series.nps', () => {
-  expect(
-    series.nps(
-      'test',
-      false,
-      'lint.src',
-      null,
-      'lint.scripts --cache',
-      undefined,
-      ' ',
-      'build --fast',
-    ),
-  ).toMatchSnapshot()
-})
-
-test('concurrent', () => {
-  expect(
-    concurrent({
-      test: 'echo test',
-      validate: {
-        script: false,
-      },
-      lint: {script: 'echo lint', color: 'bgWhite.black.dim'},
-      build: false,
-      cover: undefined,
-    }),
-  ).toMatchSnapshot()
-})
-
-test('concurrent.nps', () => {
-  expect(
-    concurrent.nps(
-      null,
-      'test',
-      undefined,
-      'lint',
-      {script: 'build.app --silent'},
-      false,
-      {script: 'validate', color: 'bgGreen.dim'},
-    ),
-  ).toMatchSnapshot()
-})
-
-test('runInNewWindow', () => {
-  expect(relativeizePath(runInNewWindow('echo hi'))).toMatchSnapshot()
+Object.keys(snapshotTests).forEach(testName => {
+  test(testName, () => {
+    const result = snapshotTests[testName]
+    expect(relativeizePath(result)).toMatchSnapshot()
+  })
 })
 
 test('runInNewWindow.nps as windows', () => {

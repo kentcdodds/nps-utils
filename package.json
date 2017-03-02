@@ -19,7 +19,8 @@
     "any-shell-escape": "^0.1.1",
     "common-tags": "^1.4.0",
     "concurrently": "^3.4.0",
-    "is-windows": "^1.0.0"
+    "is-windows": "^1.0.0",
+    "rimraf": "^2.6.1"
   },
   "devDependencies": {
     "all-contributors-cli": "^4.0.1",
@@ -39,7 +40,6 @@
     "nps": "^5.0.3",
     "opt-cli": "^1.5.1",
     "prettier-eslint": "^4.2.0",
-    "rimraf": "^2.6.1",
     "semantic-release": "^6.3.6",
     "validate-commit-msg": "^2.8.2"
   },

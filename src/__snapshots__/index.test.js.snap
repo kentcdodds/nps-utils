@@ -4,7 +4,11 @@ exports[`concurrent 1`] = `"node node_modules/concurrently/src/main.js --kill-ot
 
 exports[`concurrent.nps 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" 'nps test' 'nps lint' 'nps \\"build.app --silent\\"' 'nps validate'"`;
 
+exports[`rimraf 1`] = `"node node_modules/rimraf/bin.js build"`;
+
 exports[`runInNewWindow 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && echo hi\\" in front window' -e 'end tell'"`;
+
+exports[`runInNewWindow.nps 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && node node_modules/.bin/nps \\\\\\"lint --cache\\\\\\"\\" in front window' -e 'end tell'"`;
 
 exports[`runInNewWindow.nps as windows 1`] = `"start cmd /k \\"cd <projectRootDir> && node node_modules/.bin/nps \\\\\\"initiate database\\\\\\"\\""`;
 
