@@ -80,6 +80,9 @@ API docs can be found [here][doclet]
 - [open](https://doclets.io/kentcdodds/nps-utils/master#dl-open)
 - [crossEnv](https://doclets.io/kentcdodds/nps-utils/master#dl-crossEnv)
 
+`nps` also exports [`common-tags`][common-tags] as `commonTags` which can be
+really helpful for long scripts or descriptions.
+
 Or, see the JSDoc right in
 [the source code](https://github.com/kentcdodds/nps-utils/blob/master/src/index.js) 😎
 
@@ -142,3 +145,4 @@ MIT
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [nps]: https://npmjs.com/package/nps
 [doclet]: https://doclets.io/kentcdodds/nps-utils/master
+[common-tags]: https://npmjs.com/package/common-tags

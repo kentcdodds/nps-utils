@@ -48,6 +48,8 @@ const snapshotTests = {
   open: ({open}) =>
     open('http://kentcdodds.com -- "google chrome" --incognito'),
   crossEnv: ({crossEnv}) => crossEnv('NODE_ENV=test jest'),
+  commonTags: ({commonTags}) =>
+    commonTags.oneLine`  helpful\n  stuff\n  my good\n  friend`,
 }
 
 Object.keys(snapshotTests).forEach(testName => {

@@ -1,5 +1,5 @@
 import path from 'path'
-import {oneLine} from 'common-tags'
+import * as commonTags from 'common-tags'
 
 const defaultColors = [
   'bgBlue.bold',
@@ -24,6 +24,7 @@ export {
   mkdirp,
   open,
   crossEnv,
+  commonTags,
 }
 
 /**
@@ -191,7 +192,7 @@ concurrent.nps = function concurrentNPS(...scriptNames) {
 function runInNewWindow(command) {
   return isWindows() ?
     `start cmd /k "cd ${process.cwd()} && ${command}"` :
-    oneLine`
+    commonTags.oneLine`
       osascript
       -e 'tell application "Terminal"'
       -e 'tell application "System Events"

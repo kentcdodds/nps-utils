@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`commonTags as darwin 1`] = `"helpful stuff my good friend"`;
+
+exports[`commonTags as win32 1`] = `"helpful stuff my good friend"`;
+
 exports[`concurrent as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" 'echo test' 'echo lint'"`;
 
 exports[`concurrent as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" \\"echo test\\" \\"echo lint\\""`;
