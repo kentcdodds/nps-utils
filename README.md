@@ -50,7 +50,7 @@ npm install --save-dev nps-utils
 You'll most likely use this in your `package-scripts.js` file:
 
 ```javascript
-const npsUtils = require('npsUtils')
+const npsUtils = require('nps-utils')
 
 module.exports = {
   scripts: {
