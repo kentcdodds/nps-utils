@@ -106,7 +106,7 @@ function concurrent(scripts) {
     names: [],
   })
   const flags = [
-    '--kill-others-on-fail',
+    '--kill-others',
     `--prefix-colors "${colors.join(',')}"`,
     '--prefix "[{name}]"',
     `--names "${names.join(',')}"`,
