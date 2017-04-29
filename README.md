@@ -64,21 +64,18 @@ module.exports = {
 
 ### Available methods:
 
-API docs can be found [here][doclet]
+API docs can be found [here](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/)
 
-- [concurrent](https://doclets.io/kentcdodds/nps-utils/master#dl-concurrent)
-- [concurrent.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-concurrent.nps)
-- [series](https://doclets.io/kentcdodds/nps-utils/master#dl-series)
-- [series.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-series.nps)
-- [runInNewWindow](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow)
-- [runInNewWindow.nps](https://doclets.io/kentcdodds/nps-utils/master#dl-runInNewWindow.nps)
-- [rimraf](https://doclets.io/kentcdodds/nps-utils/master#dl-rimraf)
-- [ifWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifWindows)
-- [ifNotWindows](https://doclets.io/kentcdodds/nps-utils/master#dl-ifNotWindows)
-- [copy](https://doclets.io/kentcdodds/nps-utils/master#dl-copy)
-- [mkdirp](https://doclets.io/kentcdodds/nps-utils/master#dl-mkdirp)
-- [open](https://doclets.io/kentcdodds/nps-utils/master#dl-open)
-- [crossEnv](https://doclets.io/kentcdodds/nps-utils/master#dl-crossEnv)
+- [concurrent](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-concurrent)
+- [series](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-series)
+- [runInNewWindow](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-runInNewWindow)
+- [rimraf](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-rimraf)
+- [ifWindows](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-ifWindows)
+- [ifNotWindows](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-ifNotWindows)
+- [copy](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-copy)
+- [mkdirp](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-mkdirp)
+- [open](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-open)
+- [crossEnv](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-crossEnv)
 
 `nps` also exports [`common-tags`][common-tags] as `commonTags` which can be
 really helpful for long scripts or descriptions.
