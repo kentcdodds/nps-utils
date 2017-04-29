@@ -101,7 +101,7 @@ list them here!
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds "Tests") | [<img src="https://avatars2.githubusercontent.com/u/7352279?v=3" width="100px;"/><br /><sub>Huy Nguyen</sub>](https://www.huy-nguyen.com/)<br />[📖](https://github.com/kentcdodds/nps-utils/commits?author=huy-nguyen "Documentation") |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) 🚇 [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) | [<img src="https://avatars2.githubusercontent.com/u/7352279?v=3" width="100px;"/><br /><sub>Huy Nguyen</sub>](https://www.huy-nguyen.com/)<br />[📖](https://github.com/kentcdodds/nps-utils/commits?author=huy-nguyen) 🚇 |
 | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
