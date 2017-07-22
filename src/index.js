@@ -1,7 +1,7 @@
 import path from 'path'
 import * as commonTags from 'common-tags'
 
-const defaultColors = [
+let defaultColors = [
   'bgBlue.bold',
   'bgMagenta.bold',
   'bgGreen.bold',
@@ -25,8 +25,18 @@ export {
   open,
   crossEnv,
   commonTags,
+  setColors,
 }
 
+/**
+ * Set your own colours used by nps scripts
+ * @param {string[]} colors - Array of color strings supported by concurrent
+ * @example
+ * setColors(['white.bgblue.bold', 'black.bgYellow.dim', 'white.bgGreen'])
+ */
+function setColors(colors) {
+  defaultColors = colors
+}
 /**
  * Accepts any number of scripts, filters out any
  * falsy ones and joins them with ' && '
