@@ -55,3 +55,7 @@ exports[`series as win32 1`] = `"echo hey && echo hi && echo there"`;
 exports[`series.nps as darwin 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
 
 exports[`series.nps as win32 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
+
+exports[`setColors as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
+
+exports[`setColors as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;

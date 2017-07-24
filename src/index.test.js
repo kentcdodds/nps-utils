@@ -50,6 +50,10 @@ const snapshotTests = {
   crossEnv: ({crossEnv}) => crossEnv('NODE_ENV=test jest'),
   commonTags: ({commonTags}) =>
     commonTags.oneLine`  helpful\n  stuff\n  my good\n  friend`,
+  setColors: ({concurrent, setColors}) => {
+    setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
+    return concurrent.nps('lint', 'build')
+  },
 }
 
 Object.keys(snapshotTests).forEach(testName => {
