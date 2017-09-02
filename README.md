@@ -20,6 +20,8 @@ Utilities for [nps][nps] (npm-package-scripts)
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
+<a href="https://app.codesponsor.io/link/PKGFLnhDiFvsUA5P4kAXfiPs/kentcdodds/nps-utils" rel="nofollow"><img src="https://app.codesponsor.io/embed/PKGFLnhDiFvsUA5P4kAXfiPs/kentcdodds/nps-utils.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+
 ## The problem
 
 [nps][nps] is a great package to empower your scripts and there are some common
