@@ -75,6 +75,7 @@ API docs can be found [here](https://doc.esdoc.org/github.com/kentcdodds/nps-uti
 - [ifWindows](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-ifWindows)
 - [ifNotWindows](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-ifNotWindows)
 - [copy](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-copy)
+- [ncp](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-ncp)
 - [mkdirp](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-mkdirp)
 - [open](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-open)
 - [crossEnv](https://doc.esdoc.org/github.com/kentcdodds/nps-utils/function/index.html#static-function-crossEnv)

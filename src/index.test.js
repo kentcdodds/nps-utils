@@ -44,6 +44,7 @@ const snapshotTests = {
   ifWindows: ({ifWindows}) => ifWindows('echo main', 'echo alternate'),
   ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
   copy: ({copy}) => copy('"**/*.html" "../dist/" --cwd=src --parents'),
+  ncp: ({ncp}) => ncp('src dist'),
   mkdirp: ({mkdirp}) => mkdirp('/tmp/foo/bar/baz'),
   open: ({open}) =>
     open('http://kentcdodds.com -- "google chrome" --incognito'),
