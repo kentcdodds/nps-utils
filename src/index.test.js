@@ -82,10 +82,17 @@ function relativeizePath(stringWithAbsolutePaths) {
   // escape string for regexp generation
   let escapedPath = path.resolve(__dirname, '../').replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 
-  return stringWithAbsolutePaths.replace(
+  let relativePath = stringWithAbsolutePaths.replace(
     new RegExp(escapedPath, 'g'),
     '<projectRootDir>',
   )
+
+  let normalizedPath = relativePath.replace(/\\/g, '/');
+  if (stringWithAbsolutePaths.indexOf(path.resolve(__dirname, '../')) >= 0) {
+    console.log(normalizedPath);
+  }
+
+  return normalizedPath;
 }
 
 /*
