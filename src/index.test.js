@@ -82,7 +82,7 @@ function relativeizePath(stringWithAbsolutePaths) {
   // escape string for regexp generation
   const escapedPath = path.resolve(__dirname, '../').replace(
     new RegExp('[\\-\\[\\]\\/\\{\\}\\(\\)\\*\\+\\?\\.\\\\^\\$\\|]', 'g'),
-    '\\$&'
+    '\\$&',
   )
 
   const relativePath = stringWithAbsolutePaths.replace(
