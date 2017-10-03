@@ -21,6 +21,7 @@ export {
   ifWindows,
   ifNotWindows,
   copy,
+  ncp,
   mkdirp,
   open,
   crossEnv,
@@ -275,6 +276,18 @@ function ifNotWindows(script, altScript) {
  */
 function copy(args) {
   return `${getBin('cpy-cli', 'cpy')} ${args}`
+}
+
+/**
+ * Gets a script that uses the ncp binary. ncp
+ * is a dependency of nps-utils, so you don't need to
+ * install it yourself.
+ * @param {string} args - args to pass to ncp
+ *   learn more from http://npm.im/ncp
+ * @return {string} - the command with the ncp binary
+ */
+function ncp(args) {
+  return `${getBin('ncp')} ${args}`
 }
 
 /**

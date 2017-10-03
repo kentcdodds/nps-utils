@@ -44,6 +44,7 @@ const snapshotTests = {
   ifWindows: ({ifWindows}) => ifWindows('echo main', 'echo alternate'),
   ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
   copy: ({copy}) => copy('"**/*.html" "../dist/" --cwd=src --parents'),
+  ncp: ({ncp}) => ncp('src dist'),
   mkdirp: ({mkdirp}) => mkdirp('/tmp/foo/bar/baz'),
   open: ({open}) =>
     open('http://kentcdodds.com -- "google chrome" --incognito'),
@@ -78,10 +79,18 @@ function withPlatform(platform, getResult) {
 }
 
 function relativeizePath(stringWithAbsolutePaths) {
-  return stringWithAbsolutePaths.replace(
-    new RegExp(path.resolve(__dirname, '../'), 'g'),
+  // escape string for regexp generation
+  const escapedPath = path.resolve(__dirname, '../').replace(
+    new RegExp('[\\-\\[\\]\\/\\{\\}\\(\\)\\*\\+\\?\\.\\\\^\\$\\|]', 'g'),
+    '\\$&',
+  )
+
+  const relativePath = stringWithAbsolutePaths.replace(
+    new RegExp(escapedPath, 'g'),
     '<projectRootDir>',
   )
+
+  return relativePath.replace(/\\/g, '/')
 }
 
 /*

@@ -32,6 +32,10 @@ exports[`mkdirp as darwin 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/b
 
 exports[`mkdirp as win32 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
 
+exports[`ncp as darwin 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
+
+exports[`ncp as win32 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
+
 exports[`open as darwin 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
 
 exports[`open as win32 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
@@ -44,9 +48,9 @@ exports[`runInNewWindow as darwin 1`] = `"osascript -e 'tell application \\"Term
 
 exports[`runInNewWindow as win32 1`] = `"start cmd /k \\"cd <projectRootDir> && echo hi\\""`;
 
-exports[`runInNewWindow.nps as darwin 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && node node_modules/.bin/nps \\\\\\"lint --cache\\\\\\"\\" in front window' -e 'end tell'"`;
+exports[`runInNewWindow.nps as darwin 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\" in front window' -e 'end tell'"`;
 
-exports[`runInNewWindow.nps as win32 1`] = `"start cmd /k \\"cd <projectRootDir> && node node_modules/.bin/nps \\\\\\"lint --cache\\\\\\"\\""`;
+exports[`runInNewWindow.nps as win32 1`] = `"start cmd /k \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\""`;
 
 exports[`series as darwin 1`] = `"echo hey && echo hi && echo there"`;
 
