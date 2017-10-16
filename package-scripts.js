@@ -1,7 +1,7 @@
 require('babel-register') // eslint-disable-line import/no-unassigned-import
 const path = require('path')
 const {oneLine} = require('common-tags')
-const {concurrent, series, open } = require('./src')
+const {concurrent, series, open} = require('./src')
 
 module.exports = {
   scripts: {
@@ -29,7 +29,7 @@ module.exports = {
     lint: {
       description: 'lint the entire project',
       script: 'eslint .',
-    },   
+    },
     reportCoverage: {
       description: oneLine`
         Report coverage stats to codecov.

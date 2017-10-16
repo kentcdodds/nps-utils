@@ -1,6 +1,5 @@
 import path from 'path'
 import * as commonTags from 'common-tags'
-const fs = require('fs');
 
 let defaultColors = [
   'bgBlue.bold',
@@ -28,7 +27,7 @@ export {
   crossEnv,
   commonTags,
   setColors,
-  includePackage
+  includePackage,
 }
 
 /**
@@ -335,39 +334,43 @@ function crossEnv(args) {
  */
 
 /**
- * Includes the scripts from a sub-package in your repo (for yarn workspaces or lerna style projects).
- * @param {IncludePackageOptions} packageNameOrPath - either a simple name for the sub-package or the relative path to it. 
- *  If you just provide the name and not the path, then the path defaults to: /packages/{package}/package-scripts.js
+ * Includes the scripts from a sub-package in your repo (for
+ * yarn workspaces or lerna style projects).
+ * @param {IncludePackageOptions} packageNameOrOptions - either a
+ * simple name for the sub-package or the relative path to it.
+ *  If you just provide the name and not the path, then the path
+ *  defaults to: /packages/{package}/package-scripts.js
  * @return {any} will return an object of scripts loaded from that package
  */
-function includePackage(packageNameOrOptions)
-{
-  const packageScriptsPath = typeof packageNameOrOptions === "string" ?     
+function includePackage(packageNameOrOptions) {
+  const packageScriptsPath = typeof packageNameOrOptions === 'string' ?
     `./packages/${packageNameOrOptions}/package-scripts.js` :
-    packageNameOrOptions.path;
+    packageNameOrOptions.path
   
-  const relativeDir = path.relative(process.cwd(), path.dirname(packageScriptsPath)).replace("\\", "/");
+  const relativeDir = path.relative(process.cwd(),
+    path.dirname(packageScriptsPath)).replace('\\', '/')
 
-  var scripts = require(packageScriptsPath);
+  const scripts = require(packageScriptsPath)
 
-  var replace = (obj, prefix) => {
-    var retObj = {};
-    for(var key in obj) {
-      if (key == "description") 
-        retObj[key] = obj[key];
-      else if (key == "script") 
+  const replace = (obj, prefix) => {
+    const retObj = {}
+    for (const key in obj) {
+      if (key === 'description') {
+        retObj[key] = obj[key]
+      } else if (key === 'script') {
         retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`)
-      else if (typeof obj[key] === "string") 
-        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}${prefix?".":""}${key}`);
-      else
-        retObj[key] = Object.assign({}, replace(obj[key], key));
+      } else if (typeof obj[key] === 'string') {
+        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}${prefix ? '.' : ''}${key}`)
+      } else {
+        retObj[key] = Object.assign({}, replace(obj[key], key))
+      }
     }
-    return retObj;
+    return retObj
   }
 
-  var outp = replace(scripts.scripts, "");
+  const outp = replace(scripts.scripts, '')
   //console.log(JSON.stringify(outp,null,2));
-  return outp;
+  return outp
 }
 
 // utils
