@@ -55,6 +55,8 @@ const snapshotTests = {
     setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
     return concurrent.nps('lint', 'build')
   },
+  includePackage: ({includePackage}) => JSON.stringify(includePackage("client")),
+  includePackageWithPath: ({includePackage}) => JSON.stringify(includePackage({path: "./packages/someotherstructure/server/some-other-scripts-name.js"})),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
