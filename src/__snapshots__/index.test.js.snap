@@ -32,9 +32,9 @@ exports[`includePackage as darwin 1`] = `"{\\"root\\":\\"cd packages/client && n
 
 exports[`includePackage as win32 1`] = `"{\\"root\\":\\"cd packages/client && npm start root\\",\\"nested\\":{\\"child1\\":\\"cd packages/client && npm start nested.child1\\",\\"child2\\":{\\"script\\":\\"cd packages/client && npm start nested.child2\\",\\"description\\":\\"this is a description\\"},\\"child3\\":{\\"deep\\":{\\"script\\":\\"cd packages/client && npm start nested.child3.deep\\",\\"description\\":\\"this is a description\\"}}}}"`;
 
-exports[`includePackageWithPath as darwin 1`] = `"{\\"root\\":\\"cd packages/someotherstructure//server && npm start root\\",\\"nested\\":{\\"child1\\":\\"cd packages/someotherstructure//server && npm start nested.child1\\",\\"child2\\":\\"cd packages/someotherstructure//server && npm start nested.child2\\"}}"`;
+exports[`includePackageWithPath as darwin 1`] = `"{\\"root\\":\\"cd packages/someotherstructure/server && npm start root\\",\\"nested\\":{\\"child1\\":\\"cd packages/someotherstructure/server && npm start nested.child1\\",\\"child2\\":\\"cd packages/someotherstructure/server && npm start nested.child2\\"}}"`;
 
-exports[`includePackageWithPath as win32 1`] = `"{\\"root\\":\\"cd packages/someotherstructure//server && npm start root\\",\\"nested\\":{\\"child1\\":\\"cd packages/someotherstructure//server && npm start nested.child1\\",\\"child2\\":\\"cd packages/someotherstructure//server && npm start nested.child2\\"}}"`;
+exports[`includePackageWithPath as win32 1`] = `"{\\"root\\":\\"cd packages/someotherstructure/server && npm start root\\",\\"nested\\":{\\"child1\\":\\"cd packages/someotherstructure/server && npm start nested.child1\\",\\"child2\\":\\"cd packages/someotherstructure/server && npm start nested.child2\\"}}"`;
 
 exports[`mkdirp as darwin 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
 

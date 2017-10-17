@@ -348,7 +348,7 @@ function includePackage(packageNameOrOptions) {
     packageNameOrOptions.path
   
   const relativeDir = path.relative(process.cwd(),
-    path.dirname(packageScriptsPath)).replace('\\', '/')
+    path.dirname(packageScriptsPath)).split('\\').join('/')
 
   const scripts = require(packageScriptsPath)
 
