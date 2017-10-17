@@ -347,7 +347,8 @@ function includePackage(packageNameOrOptions) {
     `./packages/${packageNameOrOptions}/package-scripts.js` :
     packageNameOrOptions.path
   
-  const relativeDir = path.relative(process.cwd(),
+  const startingDir = process.cwd()
+  const relativeDir = path.relative(startingDir,
     path.dirname(packageScriptsPath)).split('\\').join('/')
 
   const scripts = require(packageScriptsPath)
@@ -360,13 +361,14 @@ function includePackage(packageNameOrOptions) {
       if (key === 'description') {
         retObj[key] = obj[key]
       } else if (key === 'script') {
-        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`)
+        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`,
+        `cd "${startingDir}"`)
       } else if (typeof obj[key] === 'string') {
         retObj[key] = series(`cd ${relativeDir}`,
           `npm start ${prefix}${dot}${key}`)
       } else {
         retObj[key] = Object.assign({}, replace(
-            obj[key], `${prefix}${dot}${key}`))
+            obj[key], `${prefix}${dot}${key}`, `cd "${startingDir}"`))
       }
     }
     return retObj
