@@ -352,28 +352,36 @@ function includePackage(packageNameOrOptions) {
 
   const scripts = require(packageScriptsPath)
 
-  const replace = (obj, prefix) => {
+  // eslint-disable-next-line
+  function replace(obj, prefix) {
     const retObj = {}
+    const dot = prefix ? '.' : ''
     for (const key in obj) {
       if (key === 'description') {
         retObj[key] = obj[key]
       } else if (key === 'script') {
         retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`)
       } else if (typeof obj[key] === 'string') {
-        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}${prefix ? '.' : ''}${key}`)
+        retObj[key] = series(`cd ${relativeDir}`,
+          `npm start ${prefix}${dot}${key}`)
       } else {
-        retObj[key] = Object.assign({}, replace(obj[key], key))
+        retObj[key] = Object.assign({}, replace(
+            obj[key], `${prefix}${dot}${key}`))
       }
     }
     return retObj
   }
-
+ 
   const outp = replace(scripts.scripts, '')
   //console.log(JSON.stringify(outp,null,2));
   return outp
 }
 
+
 // utils
+
+
+
 
 function quoteScript(script, escaped) {
   const quote = escaped ? '\\"' : '"'
