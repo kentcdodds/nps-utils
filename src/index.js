@@ -350,9 +350,18 @@ function includePackage(packageNameOrOptions) {
   const startingDir = process.cwd()
   const relativeDir = path.relative(startingDir,
     path.dirname(packageScriptsPath)).split('\\').join('/')
+  const relativeReturn = path.relative(relativeDir, startingDir)
 
-  const scripts = require(packageScriptsPath)
-
+  let scripts = null
+  try {
+    scripts = require(packageScriptsPath)
+  } catch (e) {
+    throw Error(commonTags.oneLine`Couldnt include the package, 
+      couldnt find it at '${packageScriptsPath}', perhaps you want
+      to set the path explicity? e.g. 
+      includePackage({path: '${packageScriptsPath}'})`)
+  }
+ 
   // eslint-disable-next-line
   function replace(obj, prefix) {
     const retObj = {}
@@ -362,7 +371,7 @@ function includePackage(packageNameOrOptions) {
         retObj[key] = obj[key]
       } else if (key === 'script') {
         retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`,
-        `cd "${startingDir}"`)
+        `cd "${relativeReturn}"`)
       } else if (typeof obj[key] === 'string') {
         retObj[key] = series(`cd ${relativeDir}`,
           `npm start ${prefix}${dot}${key}`)
@@ -379,11 +388,7 @@ function includePackage(packageNameOrOptions) {
   return outp
 }
 
-
 // utils
-
-
-
 
 function quoteScript(script, escaped) {
   const quote = escaped ? '\\"' : '"'

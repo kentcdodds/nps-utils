@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`description nodes respected 1`] = `
+Object {
+  "foo": "cd scripts/subdir && npm start foo",
+  "nested": Object {
+    "description": "this is nested",
+    "script": "cd scripts/subdir && npm start nested && cd \\"..\\\\..\\"",
+  },
+}
+`;
+
+exports[`given complex package, correct includes all scripts 1`] = `
+Object {
+  "bar": "cd scripts && npm start bar",
+  "default": "cd scripts && npm start default",
+  "foo": "cd scripts && npm start foo",
+  "nested": Object {
+    "aaa": "cd scripts && npm start nested.aaa",
+    "bbb": "cd scripts && npm start nested.bbb",
+    "default": "cd scripts && npm start nested.default",
+  },
+}
+`;

@@ -55,11 +55,11 @@ const snapshotTests = {
     setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
     return concurrent.nps('lint', 'build')
   },
-  includePackage: ({includePackage}) =>
-   JSON.stringify(includePackage('client')),
-  includePackageWithPath: ({includePackage}) =>
-    JSON.stringify(includePackage({path:
-      './packages/someotherstructure/server/some-other-scripts-name.js'})),
+  // includePackage: ({includePackage}) =>
+  //  JSON.stringify(includePackage('client')),
+  // includePackageWithPath: ({includePackage}) =>
+  //   JSON.stringify(includePackage({path:
+  //     './packages/someotherstructure/server/some-other-scripts-name.js'})),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
@@ -72,6 +72,8 @@ Object.keys(snapshotTests).forEach(testName => {
     expect(relativeizePath(result)).toMatchSnapshot()
   })
 })
+
+
 
 function withPlatform(platform, getResult) {
   const originalPlatform = process.platform
