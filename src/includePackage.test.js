@@ -82,7 +82,7 @@ test('given complex package, correct includes all scripts', () => {
 
 test('description nodes respected', () => {
   
-  jest.mock(`./scripts/subdir/complex-package-description.js`, () => ({
+  jest.mock(`./scripts/complex-package-description.js`, () => ({
     scripts: {
       foo: 'echo foo',
       nested: {
@@ -93,7 +93,7 @@ test('description nodes respected', () => {
   }), {virtual: true})
 
   
-  expect(includePackage({path: './scripts/subdir/' +
+  expect(includePackage({path: './scripts/' +
     'complex-package-description.js'}))
     .toMatchSnapshot()
 
