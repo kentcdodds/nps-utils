@@ -27,6 +27,7 @@ export {
   crossEnv,
   commonTags,
   setColors,
+  includePackage,
 }
 
 /**
@@ -324,6 +325,62 @@ function open(args) {
  */
 function crossEnv(args) {
   return `${getBin('cross-env')} ${args}`
+}
+
+/**
+ * The options to pass to includePackage
+ * @typedef {Object|string} IncludePackageOptions
+ * @property {string} path - the path to the package scripts
+ */
+
+/**
+ * Includes the scripts from a sub-package in your repo (for
+ * yarn workspaces or lerna style projects).
+ * @param {IncludePackageOptions} packageNameOrOptions - either a
+ * simple name for the sub-package or an options object where you can
+ * specify the exact path to the package to include.
+ *  If you just provide the name and not the options object, then the path
+ *  defaults to: ./packages/{package}/package-scripts.js
+ * @return {any} will return an object of scripts loaded from that package
+ */
+function includePackage(packageNameOrOptions) {
+  const packageScriptsPath = typeof packageNameOrOptions === 'string' ?
+    `./packages/${packageNameOrOptions}/package-scripts.js` :
+    packageNameOrOptions.path
+  
+  const startingDir = process.cwd().split('\\').join('/')
+
+  const relativeDir = path.relative(startingDir,
+    path.dirname(packageScriptsPath))
+    .split('\\').join('/')
+
+  const relativeReturn = path.relative(relativeDir, startingDir)
+    .split('\\').join('/')
+  
+  const scripts = require(packageScriptsPath)
+  
+  // eslint-disable-next-line
+  function replace(obj, prefix) {
+    const retObj = {}
+    const dot = prefix ? '.' : ''
+    for (const key in obj) {
+      if (key === 'description') {
+        retObj[key] = obj[key]
+      } else if (key === 'script') {
+        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`,
+        `cd "${relativeReturn}"`)
+      } else if (typeof obj[key] === 'string') {
+        retObj[key] = series(`cd ${relativeDir}`,
+          `npm start ${prefix}${dot}${key}`)
+      } else {
+        retObj[key] = Object.assign({}, replace(
+            obj[key], `${prefix}${dot}${key}`, `cd "${startingDir}"`))
+      }
+    }
+    return retObj
+  }
+ 
+  return replace(scripts.scripts, '')
 }
 
 // utils

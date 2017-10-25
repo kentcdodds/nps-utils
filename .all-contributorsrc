@@ -40,6 +40,16 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "mikecann",
+      "name": "Mike Cann",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/215033?v=4",
+      "profile": "http://www.mikecann.co.uk",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ]
 }

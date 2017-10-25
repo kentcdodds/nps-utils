@@ -68,6 +68,8 @@ Object.keys(snapshotTests).forEach(testName => {
   })
 })
 
+
+
 function withPlatform(platform, getResult) {
   const originalPlatform = process.platform
   process.platform = platform
