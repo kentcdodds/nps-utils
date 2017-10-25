@@ -348,10 +348,14 @@ function includePackage(packageNameOrOptions) {
     `./packages/${packageNameOrOptions}/package-scripts.js` :
     packageNameOrOptions.path
   
-  const startingDir = process.cwd()
+  const startingDir = process.cwd().split('\\').join('/')
+
   const relativeDir = path.relative(startingDir,
     path.dirname(packageScriptsPath))
+    .split('\\').join('/')
+
   const relativeReturn = path.relative(relativeDir, startingDir)
+    .split('\\').join('/')
   
   const scripts = require(packageScriptsPath)
   

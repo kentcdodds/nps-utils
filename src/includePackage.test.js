@@ -15,10 +15,10 @@ test('given just a string, it looks for scripts at a default location', () => {
   }), {virtual: true})
 
   expect(includePackage('foo'))
-    .toEqual({default: 'cd packages\\foo && npm start default'})
+    .toEqual({default: 'cd packages/foo && npm start default'})
 
   expect(includePackage('bar'))
-    .toEqual({default: 'cd packages\\bar && npm start default'})
+    .toEqual({default: 'cd packages/bar && npm start default'})
 
 })
 
