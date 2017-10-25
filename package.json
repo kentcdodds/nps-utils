@@ -70,13 +70,20 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/test-utils.js"
+    ]
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
   },
+  "modulePathIgnorePatterns": [
+    "<rootDir>/test-utils.js"
+  ],
   "lint-staged": {
     "*.js": [
       "prettier-eslint --write",

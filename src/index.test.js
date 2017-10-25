@@ -1,4 +1,4 @@
-import path from 'path'
+import {relativeizePath, withPlatform} from './test-utils'
 
 // all of these tests are run both as darwin and win32
 // you provide the key (test name) and the value is a
@@ -67,33 +67,6 @@ Object.keys(snapshotTests).forEach(testName => {
     expect(relativeizePath(result)).toMatchSnapshot()
   })
 })
-
-
-
-function withPlatform(platform, getResult) {
-  const originalPlatform = process.platform
-  process.platform = platform
-  jest.resetModules()
-  const freshUtils = require('.')
-  const result = getResult(freshUtils)
-  process.platform = originalPlatform
-  return result
-}
-
-function relativeizePath(stringWithAbsolutePaths) {
-  // escape string for regexp generation
-  const escapedPath = path.resolve(__dirname, '../').replace(
-    new RegExp('[\\-\\[\\]\\/\\{\\}\\(\\)\\*\\+\\?\\.\\\\^\\$\\|]', 'g'),
-    '\\$&',
-  )
-
-  const relativePath = stringWithAbsolutePaths.replace(
-    new RegExp(escapedPath, 'g'),
-    '<projectRootDir>',
-  )
-
-  return relativePath.replace(/\\/g, '/')
-}
 
 /*
   eslint
