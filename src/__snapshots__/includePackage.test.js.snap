@@ -2,10 +2,10 @@
 
 exports[`description nodes respected 1`] = `
 Object {
-  "foo": "cd scripts && npm start foo",
+  "foo": "cd scripts\\\\subdir && npm start foo",
   "nested": Object {
     "description": "this is nested",
-    "script": "cd scripts && npm start nested && cd \\"..\\"",
+    "script": "cd scripts\\\\subdir && npm start nested && cd \\"..\\\\..\\"",
   },
 }
 `;

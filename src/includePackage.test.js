@@ -1,4 +1,4 @@
-import {includePackage, commonTags} from './index'
+import {includePackage} from './index'
 
 test('given just a string, it looks for scripts at a default location', () => {
 
@@ -15,19 +15,11 @@ test('given just a string, it looks for scripts at a default location', () => {
   }), {virtual: true})
 
   expect(includePackage('foo'))
-    .toEqual({default: 'cd packages/foo && npm start default'})
+    .toEqual({default: 'cd packages\\foo && npm start default'})
 
   expect(includePackage('bar'))
-    .toEqual({default: 'cd packages/bar && npm start default'})
+    .toEqual({default: 'cd packages\\bar && npm start default'})
 
-})
-
-test(commonTags.oneLine`given just a string, if that package doesnt exist,
-  it thows a helpful error`, () => {
-  
-  expect(() => includePackage('doesnt-exist'))
-    .toThrowError(/Couldnt include the package/)
-  
 })
 
 test('given an explicit path, it uses that', () => {
@@ -49,14 +41,6 @@ test('given an explicit path, it uses that', () => {
 
   expect(includePackage({path: `./explicit-bar.js`}))
     .toEqual({default: 'cd  && npm start default'})
-
-})
-
-test(commonTags.oneLine`given an explicit path, if that package doesnt exist,
-  it thows a helpful error`, () => {
-
-  expect(() => includePackage({path: 'it-doesnt-exist.js'}))
-    .toThrowError(/Couldnt include the package/)
 
 })
 
@@ -82,7 +66,7 @@ test('given complex package, correct includes all scripts', () => {
 
 test('description nodes respected', () => {
   
-  jest.mock(`./scripts/complex-package-description.js`, () => ({
+  jest.mock(`./scripts/subdir/complex-package-description.js`, () => ({
     scripts: {
       foo: 'echo foo',
       nested: {
@@ -93,7 +77,7 @@ test('description nodes respected', () => {
   }), {virtual: true})
 
   
-  expect(includePackage({path: './scripts/' +
+  expect(includePackage({path: './scripts/subdir/' +
     'complex-package-description.js'}))
     .toMatchSnapshot()
 
