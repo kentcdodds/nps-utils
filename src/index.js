@@ -28,6 +28,7 @@ export {
   commonTags,
   setColors,
   includePackage,
+  shellEscape,
 }
 
 /**
