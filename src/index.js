@@ -29,6 +29,7 @@ export {
   setColors,
   includePackage,
   shellEscape,
+  getBin,
 }
 
 /**
@@ -125,7 +126,7 @@ function concurrent(scripts) {
     `--names "${names.join(',')}"`,
     shellEscape(quotedScripts),
   ]
-  const concurrently = getBin('concurrently')
+  const concurrently = runBin('concurrently')
   return `${concurrently} ${flags.join(' ')}`
 
   function reduceScripts(accumulator, scriptName, index) {
@@ -243,7 +244,7 @@ runInNewWindow.nps = function runInNewWindowNPS(scriptName) {
  * @return {string} - the command with the rimraf binary
  */
 function rimraf(args) {
-  return `${getBin('rimraf')} ${args}`
+  return `${runBin('rimraf')} ${args}`
 }
 
 /**
@@ -277,7 +278,7 @@ function ifNotWindows(script, altScript) {
  * @return {string} - the command with the cpy-cli binary
  */
 function copy(args) {
-  return `${getBin('cpy-cli', 'cpy')} ${args}`
+  return `${runBin('cpy-cli', 'cpy')} ${args}`
 }
 
 /**
@@ -289,7 +290,7 @@ function copy(args) {
  * @return {string} - the command with the ncp binary
  */
 function ncp(args) {
-  return `${getBin('ncp')} ${args}`
+  return `${runBin('ncp')} ${args}`
 }
 
 /**
@@ -301,7 +302,7 @@ function ncp(args) {
  * @return {string} - the command with the mkdirp binary
  */
 function mkdirp(args) {
-  return `${getBin('mkdirp')} ${args}`
+  return `${runBin('mkdirp')} ${args}`
 }
 
 /**
@@ -313,7 +314,7 @@ function mkdirp(args) {
  * @return {string} - the command with the opn-cli binary
  */
 function open(args) {
-  return `${getBin('opn-cli', 'opn')} ${args}`
+  return `${runBin('opn-cli', 'opn')} ${args}`
 }
 
 /**
@@ -325,7 +326,7 @@ function open(args) {
  * @return {string} - the command with the cross-env binary
  */
 function crossEnv(args) {
-  return `${getBin('cross-env')} ${args}`
+  return `${runBin('cross-env')} ${args}`
 }
 
 /**
@@ -392,6 +393,12 @@ function quoteScript(script, escaped) {
   return shouldQuote ? `${quote}${script}${quote}` : script
 }
 
+/**
+ * Get the path to one of the bin scripts exported by a package
+ * @param {string} packageName - name of the npm package
+ * @param {string} binName=packageName - name of the script
+ * @returns {string} path, relative to process.cwd()
+ */
 function getBin(packageName, binName = packageName) {
   const packagePath = require.resolve(`${packageName}/package.json`)
   const concurrentlyDir = path.dirname(packagePath)
@@ -400,8 +407,11 @@ function getBin(packageName, binName = packageName) {
     binRelativeToPackage = binRelativeToPackage[binName]
   }
   const fullBinPath = path.join(concurrentlyDir, binRelativeToPackage)
-  const relativeBinPath = path.relative(process.cwd(), fullBinPath)
-  return `node ${relativeBinPath}`
+  return path.relative(process.cwd(), fullBinPath)
+}
+
+function runBin(...args) {
+  return `node ${getBin(...args)}`
 }
 
 function isWindows() {

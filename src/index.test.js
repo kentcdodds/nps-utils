@@ -55,6 +55,7 @@ const snapshotTests = {
     setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
     return concurrent.nps('lint', 'build')
   },
+  getBin: ({getBin}) => getBin('rimraf'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
