@@ -110,15 +110,12 @@ series.nps = function seriesNPS(...scriptNames) {
  * @return {string} - the command to run
  */
 function concurrent(scripts) {
-  const {
-    colors,
-    scripts: quotedScripts,
-    names,
-  } = Object.keys(scripts).reduce(reduceScripts, {
-    colors: [],
-    scripts: [],
-    names: [],
-  })
+  const {colors, scripts: quotedScripts, names} = Object.keys(scripts)
+    .reduce(reduceScripts, {
+      colors: [],
+      scripts: [],
+      names: [],
+    })
   const flags = [
     '--kill-others-on-fail',
     `--prefix-colors "${colors.join(',')}"`,
@@ -349,18 +346,21 @@ function includePackage(packageNameOrOptions) {
   const packageScriptsPath = typeof packageNameOrOptions === 'string' ?
     `./packages/${packageNameOrOptions}/package-scripts.js` :
     packageNameOrOptions.path
-  
+
   const startingDir = process.cwd().split('\\').join('/')
 
-  const relativeDir = path.relative(startingDir,
-    path.dirname(packageScriptsPath))
-    .split('\\').join('/')
+  const relativeDir = path
+    .relative(startingDir, path.dirname(packageScriptsPath))
+    .split('\\')
+    .join('/')
 
-  const relativeReturn = path.relative(relativeDir, startingDir)
-    .split('\\').join('/')
-  
+  const relativeReturn = path
+    .relative(relativeDir, startingDir)
+    .split('\\')
+    .join('/')
+
   const scripts = require(packageScriptsPath)
-  
+
   // eslint-disable-next-line
   function replace(obj, prefix) {
     const retObj = {}
@@ -369,19 +369,26 @@ function includePackage(packageNameOrOptions) {
       if (key === 'description') {
         retObj[key] = obj[key]
       } else if (key === 'script') {
-        retObj[key] = series(`cd ${relativeDir}`, `npm start ${prefix}`,
-        `cd "${relativeReturn}"`)
+        retObj[key] = series(
+          `cd ${relativeDir}`,
+          `npm start ${prefix}`,
+          `cd "${relativeReturn}"`,
+        )
       } else if (typeof obj[key] === 'string') {
-        retObj[key] = series(`cd ${relativeDir}`,
-          `npm start ${prefix}${dot}${key}`)
+        retObj[key] = series(
+          `cd ${relativeDir}`,
+          `npm start ${prefix}${dot}${key}`,
+        )
       } else {
-        retObj[key] = Object.assign({}, replace(
-            obj[key], `${prefix}${dot}${key}`, `cd "${startingDir}"`))
+        retObj[key] = Object.assign(
+          {},
+          replace(obj[key], `${prefix}${dot}${key}`, `cd "${startingDir}"`),
+        )
       }
     }
     return retObj
   }
- 
+
   return replace(scripts.scripts, '')
 }
 
