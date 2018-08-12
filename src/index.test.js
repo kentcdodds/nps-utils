@@ -42,7 +42,8 @@ const snapshotTests = {
     runInNewWindow.nps('lint --cache'),
   rimraf: ({rimraf}) => rimraf('build'),
   ifWindows: ({ifWindows}) => ifWindows('echo main', 'echo alternate'),
-  ifNotWindows: ({ifNotWindows}) => ifNotWindows('echo main', 'echo alternate'),
+  ifNotWindows: ({ifNotWindows}) =>
+    ifNotWindows('echo main', 'echo alternate'),
   copy: ({copy}) => copy('"**/*.html" "../dist/" --cwd=src --parents'),
   ncp: ({ncp}) => ncp('src dist'),
   mkdirp: ({mkdirp}) => mkdirp('/tmp/foo/bar/baz'),
@@ -55,6 +56,9 @@ const snapshotTests = {
     setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
     return concurrent.nps('lint', 'build')
   },
+  shellEscape: ({shellEscape}) =>
+    shellEscape(`testing $:{}()[]ą^ęńł'÷/\\'\`" `),
+  getBin: ({getBin}) => getBin('rimraf'),
 }
 
 Object.keys(snapshotTests).forEach(testName => {
@@ -68,8 +72,6 @@ Object.keys(snapshotTests).forEach(testName => {
   })
 })
 
-
-
 function withPlatform(platform, getResult) {
   const originalPlatform = process.platform
   process.platform = platform
@@ -82,10 +84,12 @@ function withPlatform(platform, getResult) {
 
 function relativeizePath(stringWithAbsolutePaths) {
   // escape string for regexp generation
-  const escapedPath = path.resolve(__dirname, '../').replace(
-    new RegExp('[\\-\\[\\]\\/\\{\\}\\(\\)\\*\\+\\?\\.\\\\^\\$\\|]', 'g'),
-    '\\$&',
-  )
+  const escapedPath = path
+    .resolve(__dirname, '../')
+    .replace(
+      new RegExp('[\\-\\[\\]\\/\\{\\}\\(\\)\\*\\+\\?\\.\\\\^\\$\\|]', 'g'),
+      '\\$&',
+    )
 
   const relativePath = stringWithAbsolutePaths.replace(
     new RegExp(escapedPath, 'g'),
