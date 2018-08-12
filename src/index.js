@@ -419,9 +419,15 @@ function isWindows() {
   return require('is-windows')()
 }
 
-function shellEscape(...args) {
+/**
+ * Escape a string so the shell expands it to the original.
+ * @param {string|array} arg - as accepted by any-shell-escape; arrays will
+ * yield multiple arguments in the shell
+ * @returns {string} ready to pass to shell
+ */
+function shellEscape(arg) {
   // lazily require for perf :)
-  return require('any-shell-escape')(...args)
+  return require('any-shell-escape')(arg)
 }
 
 /*

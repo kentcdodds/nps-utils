@@ -55,6 +55,8 @@ const snapshotTests = {
     setColors(['white.bgBlue.bold', 'black.bgYellow.dim'])
     return concurrent.nps('lint', 'build')
   },
+  shellEscape: ({shellEscape}) =>
+    shellEscape(`testing $:{}()[]ą^ęńł'÷/\\'\`" `),
   getBin: ({getBin}) => getBin('rimraf'),
 }
 
