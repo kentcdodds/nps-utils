@@ -50,6 +50,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "ryansully",
+      "name": "Ryan Sullivan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51629?v=4",
+      "profile": "http://ryansully.com/",
+      "contributions": [
+        "doc"
+      ]
     }
   ]
 }
