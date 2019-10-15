@@ -13,6 +13,10 @@ let defaultColors = [
   // TODO: add more colors that look good?
 ]
 
+let defaultConcurrentFlags = [
+  '--kill-others-on-fail',
+]
+
 export {
   concurrent,
   series,
@@ -30,6 +34,7 @@ export {
   includePackage,
   shellEscape,
   getBin,
+  setConcurrentFlags,
 }
 
 /**
@@ -41,6 +46,16 @@ export {
 function setColors(colors) {
   defaultColors = colors
 }
+
+/**
+ * Set custom flags to be passed to concurrently
+ * @param {string[]} flags - Array of command line arguments for concurrently
+ * @see https://github.com/kimmobrunfeldt/concurrently
+ */
+function setConcurrentFlags(flags) {
+  defaultConcurrentFlags = flags
+}
+
 /**
  * Accepts any number of scripts, filters out any
  * falsy ones and joins them with ' && '
@@ -117,7 +132,7 @@ function concurrent(scripts) {
       names: [],
     })
   const flags = [
-    '--kill-others-on-fail',
+    ...defaultConcurrentFlags,
     `--prefix-colors "${colors.join(',')}"`,
     '--prefix "[{name}]"',
     `--names "${names.join(',')}"`,
