@@ -4,13 +4,13 @@ exports[`commonTags as darwin 1`] = `"helpful stuff my good friend"`;
 
 exports[`commonTags as win32 1`] = `"helpful stuff my good friend"`;
 
-exports[`concurrent as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" 'echo test' 'echo lint'"`;
+exports[`concurrent as darwin 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" 'echo test' 'echo lint'"`;
 
-exports[`concurrent as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" \\"echo test\\" \\"echo lint\\""`;
+exports[`concurrent as win32 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" \\"echo test\\" \\"echo lint\\""`;
 
-exports[`concurrent.nps as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" 'nps test' 'nps lint' 'nps \\"build.app --silent\\"' 'nps validate'"`;
+exports[`concurrent.nps as darwin 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" 'nps test' 'nps lint' 'nps \\"build.app --silent\\"' 'nps validate'"`;
 
-exports[`concurrent.nps as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" \\"nps test\\" \\"nps lint\\" \\"nps \\"\\"build.app --silent\\"\\"\\" \\"nps validate\\""`;
+exports[`concurrent.nps as win32 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" \\"nps test\\" \\"nps lint\\" \\"nps \\"\\"build.app --silent\\"\\"\\" \\"nps validate\\""`;
 
 exports[`copy as darwin 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
 
@@ -64,9 +64,9 @@ exports[`series.nps as darwin 1`] = `"nps test && nps lint.src && nps \\"lint.sc
 
 exports[`series.nps as win32 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
 
-exports[`setColors as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
+exports[`setColors as darwin 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
 
-exports[`setColors as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
+exports[`setColors as win32 1`] = `"node node_modules/concurrently/bin/concurrently.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
 
 exports[`shellEscape as darwin 1`] = `"'testing $:{}()[]ą^ęńł'\\"'\\"'÷//'\\"'\\"'\`\\" '"`;
 
