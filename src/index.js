@@ -407,7 +407,10 @@ function quoteScript(script, escaped) {
  * @returns {string} path, relative to process.cwd()
  */
 function getBin(packageName, binName = packageName) {
-  const packagePath = require.resolve(`${packageName}/package.json`)
+  const packagePath = require.resolve(
+    `${packageName}/package.json`,
+    {paths: [process.cwd()]},
+  )
   const concurrentlyDir = path.dirname(packagePath)
   let {bin: binRelativeToPackage} = require(packagePath)
   if (typeof binRelativeToPackage === 'object') {
