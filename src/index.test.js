@@ -59,6 +59,10 @@ const snapshotTests = {
   shellEscape: ({shellEscape}) =>
     shellEscape(`testing $:{}()[]ą^ęńł'÷/\\'\`" `),
   getBin: ({getBin}) => getBin('rimraf'),
+  setConcurrentFlags: ({concurrent, setConcurrentFlags}) => {
+    setConcurrentFlags(['--kill-others-on-fail', '--no-color'])
+    return concurrent.nps('lint', 'build')
+  },
 }
 
 Object.keys(snapshotTests).forEach(testName => {

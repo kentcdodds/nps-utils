@@ -68,6 +68,10 @@ exports[`setColors as darwin 1`] = `"node node_modules/concurrently/src/main.js 
 
 exports[`setColors as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
 
+exports[`setConcurrentFlags as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --no-color --prefix-colors \\"bgBlue.bold,bgMagenta.bold\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
+
+exports[`setConcurrentFlags as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --no-color --prefix-colors \\"bgBlue.bold,bgMagenta.bold\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
+
 exports[`shellEscape as darwin 1`] = `"'testing $:{}()[]ą^ęńł'\\"'\\"'÷//'\\"'\\"'\`\\" '"`;
 
 exports[`shellEscape as win32 1`] = `"\\"testing $:{}()[]ą^ęńł'÷//'\`\\"\\" \\""`;
