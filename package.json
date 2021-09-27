@@ -19,7 +19,7 @@
     "any-shell-escape": "^0.1.1",
     "common-tags": "^1.4.0",
     "concurrently": "^3.4.0",
-    "cpy-cli": "^1.0.1",
+    "cpy-cli": "^3.1.1",
     "cross-env": "^3.1.4",
     "is-windows": "^1.0.0",
     "mkdirp": "^0.5.1",
