@@ -2,72 +2,160 @@
 
 exports[`commonTags as darwin 1`] = `"helpful stuff my good friend"`;
 
+exports[`commonTags as darwin CI 1`] = `"helpful stuff my good friend"`;
+
 exports[`commonTags as win32 1`] = `"helpful stuff my good friend"`;
+
+exports[`commonTags as win32 CI 1`] = `"helpful stuff my good friend"`;
 
 exports[`concurrent as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" 'echo test' 'echo lint'"`;
 
+exports[`concurrent as darwin CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" 'echo test' 'echo lint'"`;
+
 exports[`concurrent as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" \\"echo test\\" \\"echo lint\\""`;
+
+exports[`concurrent as win32 CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgBlue.bold,bgWhite.black.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint\\" \\"echo test\\" \\"echo lint\\""`;
 
 exports[`concurrent.nps as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" 'nps test' 'nps lint' 'nps \\"build.app --silent\\"' 'nps validate'"`;
 
+exports[`concurrent.nps as darwin CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" 'nps test' 'nps lint' 'nps \\"build.app --silent\\"' 'nps validate'"`;
+
 exports[`concurrent.nps as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" \\"nps test\\" \\"nps lint\\" \\"nps \\"\\"build.app --silent\\"\\"\\" \\"nps validate\\""`;
+
+exports[`concurrent.nps as win32 CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"bgMagenta.bold,bgBlack.bold,bgCyan.bold,bgGreen.dim\\" --prefix \\"[{name}]\\" --names \\"test,lint,build.app,validate\\" \\"nps test\\" \\"nps lint\\" \\"nps \\"\\"build.app --silent\\"\\"\\" \\"nps validate\\""`;
 
 exports[`copy as darwin 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
 
+exports[`copy as darwin CI 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
+
 exports[`copy as win32 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
+
+exports[`copy as win32 CI 1`] = `"node node_modules/cpy-cli/cli.js \\"**/*.html\\" \\"../dist/\\" --cwd=src --parents"`;
 
 exports[`crossEnv as darwin 1`] = `"node node_modules/cross-env/bin/cross-env.js NODE_ENV=test jest"`;
 
+exports[`crossEnv as darwin CI 1`] = `"node node_modules/cross-env/bin/cross-env.js NODE_ENV=test jest"`;
+
 exports[`crossEnv as win32 1`] = `"node node_modules/cross-env/bin/cross-env.js NODE_ENV=test jest"`;
+
+exports[`crossEnv as win32 CI 1`] = `"node node_modules/cross-env/bin/cross-env.js NODE_ENV=test jest"`;
 
 exports[`getBin as darwin 1`] = `"node_modules/rimraf/bin.js"`;
 
+exports[`getBin as darwin CI 1`] = `"node_modules/rimraf/bin.js"`;
+
 exports[`getBin as win32 1`] = `"node_modules/rimraf/bin.js"`;
+
+exports[`getBin as win32 CI 1`] = `"node_modules/rimraf/bin.js"`;
+
+exports[`ifCI as darwin 1`] = `"echo not CI"`;
+
+exports[`ifCI as darwin CI 1`] = `"echo CI"`;
+
+exports[`ifCI as win32 1`] = `"echo not CI"`;
+
+exports[`ifCI as win32 CI 1`] = `"echo CI"`;
+
+exports[`ifNotCI as darwin 1`] = `"echo not CI"`;
+
+exports[`ifNotCI as darwin CI 1`] = `"echo CI"`;
+
+exports[`ifNotCI as win32 1`] = `"echo not CI"`;
+
+exports[`ifNotCI as win32 CI 1`] = `"echo CI"`;
 
 exports[`ifNotWindows as darwin 1`] = `"echo main"`;
 
+exports[`ifNotWindows as darwin CI 1`] = `"echo main"`;
+
 exports[`ifNotWindows as win32 1`] = `"echo alternate"`;
+
+exports[`ifNotWindows as win32 CI 1`] = `"echo alternate"`;
 
 exports[`ifWindows as darwin 1`] = `"echo alternate"`;
 
+exports[`ifWindows as darwin CI 1`] = `"echo alternate"`;
+
 exports[`ifWindows as win32 1`] = `"echo main"`;
+
+exports[`ifWindows as win32 CI 1`] = `"echo main"`;
 
 exports[`mkdirp as darwin 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
 
+exports[`mkdirp as darwin CI 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
+
 exports[`mkdirp as win32 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
+
+exports[`mkdirp as win32 CI 1`] = `"node node_modules/mkdirp/bin/cmd.js /tmp/foo/bar/baz"`;
 
 exports[`ncp as darwin 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
 
+exports[`ncp as darwin CI 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
+
 exports[`ncp as win32 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
+
+exports[`ncp as win32 CI 1`] = `"node node_modules/ncp/bin/ncp src dist"`;
 
 exports[`open as darwin 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
 
+exports[`open as darwin CI 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
+
 exports[`open as win32 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
+
+exports[`open as win32 CI 1`] = `"node node_modules/opn-cli/cli.js http://kentcdodds.com -- \\"google chrome\\" --incognito"`;
 
 exports[`rimraf as darwin 1`] = `"node node_modules/rimraf/bin.js build"`;
 
+exports[`rimraf as darwin CI 1`] = `"node node_modules/rimraf/bin.js build"`;
+
 exports[`rimraf as win32 1`] = `"node node_modules/rimraf/bin.js build"`;
+
+exports[`rimraf as win32 CI 1`] = `"node node_modules/rimraf/bin.js build"`;
 
 exports[`runInNewWindow as darwin 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && echo hi\\" in front window' -e 'end tell'"`;
 
+exports[`runInNewWindow as darwin CI 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && echo hi\\" in front window' -e 'end tell'"`;
+
 exports[`runInNewWindow as win32 1`] = `"start cmd /k \\"cd <projectRootDir> && echo hi\\""`;
+
+exports[`runInNewWindow as win32 CI 1`] = `"start cmd /k \\"cd <projectRootDir> && echo hi\\""`;
 
 exports[`runInNewWindow.nps as darwin 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\" in front window' -e 'end tell'"`;
 
+exports[`runInNewWindow.nps as darwin CI 1`] = `"osascript -e 'tell application \\"Terminal\\"' -e 'tell application \\"System Events\\" to keystroke \\"t\\" using {command down}' -e 'do script \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\" in front window' -e 'end tell'"`;
+
 exports[`runInNewWindow.nps as win32 1`] = `"start cmd /k \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\""`;
+
+exports[`runInNewWindow.nps as win32 CI 1`] = `"start cmd /k \\"cd <projectRootDir> && node node_modules/.bin/nps /\\"lint --cache/\\"\\""`;
 
 exports[`series as darwin 1`] = `"echo hey && echo hi && echo there"`;
 
+exports[`series as darwin CI 1`] = `"echo hey && echo hi && echo there"`;
+
 exports[`series as win32 1`] = `"echo hey && echo hi && echo there"`;
+
+exports[`series as win32 CI 1`] = `"echo hey && echo hi && echo there"`;
 
 exports[`series.nps as darwin 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
 
+exports[`series.nps as darwin CI 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
+
 exports[`series.nps as win32 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
+
+exports[`series.nps as win32 CI 1`] = `"nps test && nps lint.src && nps \\"lint.scripts --cache\\" && nps \\"build --fast\\""`;
 
 exports[`setColors as darwin 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
 
+exports[`setColors as darwin CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" 'nps lint' 'nps build'"`;
+
 exports[`setColors as win32 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
+
+exports[`setColors as win32 CI 1`] = `"node node_modules/concurrently/src/main.js --kill-others-on-fail --prefix-colors \\"white.bgBlue.bold,black.bgYellow.dim\\" --prefix \\"[{name}]\\" --names \\"lint,build\\" \\"nps lint\\" \\"nps build\\""`;
 
 exports[`shellEscape as darwin 1`] = `"'testing $:{}()[]ą^ęńł'\\"'\\"'÷//'\\"'\\"'\`\\" '"`;
 
+exports[`shellEscape as darwin CI 1`] = `"'testing $:{}()[]ą^ęńł'\\"'\\"'÷//'\\"'\\"'\`\\" '"`;
+
 exports[`shellEscape as win32 1`] = `"\\"testing $:{}()[]ą^ęńł'÷//'\`\\"\\" \\""`;
+
+exports[`shellEscape as win32 CI 1`] = `"\\"testing $:{}()[]ą^ęńł'÷//'\`\\"\\" \\""`;
