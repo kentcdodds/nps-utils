@@ -20,6 +20,8 @@ export {
   rimraf,
   ifWindows,
   ifNotWindows,
+  ifCI,
+  ifNotCI,
   copy,
   ncp,
   mkdirp,
@@ -267,6 +269,28 @@ function ifNotWindows(script, altScript) {
 }
 
 /**
+ * Takes two scripts and returns the first if the
+ * current environment is CI, and the second
+ * if the current environment is not CI
+ * @param {string} script - the script to use for CI
+ * @param {string} altScript - the script to use for non-CI
+ * @return {string} - the command to run
+ */
+function ifCI(script, altScript) {
+  return isCI() ? script : altScript
+}
+
+/**
+ * Simply calls ifCI(altScript, script)
+ * @param {string} script - the script to use for non-CI
+ * @param {string} altScript - the script to use for CI
+ * @return {string} - the command to run
+ */
+function ifNotCI(script, altScript) {
+  return ifCI(altScript, script)
+}
+
+/**
  * Gets a script that uses the cpy-cli binary. cpy-cli
  * is a dependency of nps-utils, so you don't need to
  * install it yourself.
@@ -424,6 +448,11 @@ function runBin(...args) {
 function isWindows() {
   // lazily require for perf :)
   return require('is-windows')()
+}
+
+function isCI() {
+  // lazily require for perf :)
+  return require('ci-info').isCI
 }
 
 /**

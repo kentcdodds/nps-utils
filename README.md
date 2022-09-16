@@ -9,7 +9,7 @@ Utilities for [nps][nps] (npm-package-scripts)
 [![downloads][downloads-badge]][npm-stat]
 [![MIT License][license-badge]][LICENSE]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Donate][donate-badge]][donate]
 [![Code of Conduct][coc-badge]][coc]
@@ -102,8 +102,8 @@ list them here!
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) 🚇 [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) | [<img src="https://avatars2.githubusercontent.com/u/7352279?v=3" width="100px;"/><br /><sub>Huy Nguyen</sub>](https://www.huy-nguyen.com/)<br />[📖](https://github.com/kentcdodds/nps-utils/commits?author=huy-nguyen) 🚇 | [<img src="https://avatars1.githubusercontent.com/u/1970063?v=4" width="100px;"/><br /><sub>Keith Gunn</sub>](https://github.com/gunnx)<br />[🐛](https://github.com/kentcdodds/nps-utils/issues?q=author%3Agunnx) [💻](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) [📖](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) | [<img src="https://avatars3.githubusercontent.com/u/215033?v=4" width="100px;"/><br /><sub>Mike Cann</sub>](http://www.mikecann.co.uk)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=mikecann) [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=mikecann) |
-| :---: | :---: | :---: | :---: |
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) 🚇 [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=kentcdodds) | [<img src="https://avatars2.githubusercontent.com/u/7352279?v=3" width="100px;"/><br /><sub>Huy Nguyen</sub>](https://www.huy-nguyen.com/)<br />[📖](https://github.com/kentcdodds/nps-utils/commits?author=huy-nguyen) 🚇 | [<img src="https://avatars1.githubusercontent.com/u/1970063?v=4" width="100px;"/><br /><sub>Keith Gunn</sub>](https://github.com/gunnx)<br />[🐛](https://github.com/kentcdodds/nps-utils/issues?q=author%3Agunnx) [💻](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) [📖](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=gunnx) | [<img src="https://avatars3.githubusercontent.com/u/215033?v=4" width="100px;"/><br /><sub>Mike Cann</sub>](http://www.mikecann.co.uk)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=mikecann) [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=mikecann) | [<img src="https://avatars.githubusercontent.com/u/15718297?v=4" width="100px;"/><br /><sub>Koen van Staveren</sub>](https://underkoen.nl)<br />[💻](https://github.com/kentcdodds/nps-utils/commits?author=UnderKoen) [⚠️](https://github.com/kentcdodds/nps-utils/commits?author=UnderKoen) |
+| :---: | :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification. Contributions of any kind welcome!
